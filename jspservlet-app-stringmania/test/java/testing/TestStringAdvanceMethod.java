@@ -1,6 +1,6 @@
 package utility;
 
-public class StringAdvanceMethod {
+public class TestStringAdvanceMethod {
 	//Enter the code here...
 	private String input1;
 	private String input2;

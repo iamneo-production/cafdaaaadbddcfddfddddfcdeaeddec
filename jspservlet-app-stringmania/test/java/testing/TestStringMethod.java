@@ -1,6 +1,6 @@
 package utility;
 
-public class StringMethod {
+public class TestStringMethod {
     private String input;
     
     public String getInput() {

@@ -1,6 +1,6 @@
 package utility;
 
-public class StringBoolean {
+public class TestStringBoolean {
     private String input1;
     private String input2;
     public String getInput1() {
