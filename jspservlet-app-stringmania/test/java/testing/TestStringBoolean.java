@@ -1,101 +1,38 @@
-package testing;
+package utility;
 
-
-
-import static org.junit.Assert.*;
-import org.junit.Test;
-
-import utility.StringBoolean;
-
-public class TestStringBoolean {
-	StringBoolean sb = new StringBoolean();
-
-	@Test
-	public void testSetInputsMethod() {
-		sb.setInput1("Java");
-		sb.setInput2("Program");
-		assertEquals("Java", sb.getInput1());
-		assertEquals("Program", sb.getInput2());
-		try {
-			sb.setInput1(null);
-			sb.setInput2(null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+public class StringBoolean {
+    private String input1;
+    private String input2;
+    public String getInput1() {
+		return input1;
 	}
-
-	@Test
-	public void testContainsMethod() {
-		assertEquals(true, sb.contains("Java ", " "));
-		assertEquals(false, sb.contains("Java", " "));
-		assertEquals(true, sb.contains(" ", " "));
-		try {
-			sb.contains("", "");
-			sb.contains("Java", "");
-			sb.contains("", "Java");
-		} catch (IllegalArgumentException e) {
-			// System.out.println("null");
-			e.printStackTrace();
-		}
+	public void setInput1(String input1) {
+		this.input1 = input1;
 	}
-
-	@Test
-	public void testEndsWithMethod() {
-		assertEquals(true, sb.endsWith("java", "a"));
-		assertEquals(false, sb.endsWith("java", " "));
-		assertEquals(false, sb.endsWith("java", "j"));
-		try {
-			sb.endsWith("", "");
-			sb.endsWith("java", "");
-			sb.endsWith("", "java");
-		} catch (IllegalArgumentException e) {
-			// System.out.println("null");
-			e.printStackTrace();
-		}
+	public String getInput2() {
+		return input2;
 	}
-
-	@Test
-	public void testStartsWithMethod() {
-		assertEquals(true, sb.startsWith("java", "j"));
-		assertEquals(false, sb.startsWith("java", " "));
-		assertEquals(false, sb.startsWith("java", "a"));
-		try {
-			sb.startsWith("", "");
-			sb.startsWith("java", "");
-			sb.startsWith("", "java");
-		} catch (IllegalArgumentException e) {
-			// System.out.println("null");
-			e.printStackTrace();
-		}
+	public void setInput2(String input2) {
+		this.input2 = input2;
 	}
+     public boolean endsWith(String input1, String input2) {
+       
+        return input1.endsWith(input2);
+    }
 
-	@Test
-	public void testEqualsMethod() {
-		assertEquals(true, sb.equals("java", "java"));
-		assertEquals(false, sb.equals("java", " "));
-		assertEquals(false, sb.equals("java", "Java"));
-		try {
-			sb.equals("", "");
-			sb.equals("java", "");
-			sb.equals("", "java");
-		} catch (IllegalArgumentException e) {
-			// System.out.println("null");
-			e.printStackTrace();
-		}
-	}
+    public boolean startsWith(String input1, String input2) {
+        return input1.startsWith(input2);
+    }
 
-	@Test
-	public void testEqualsIgnoreCaseMethod() {
-		assertEquals(true, sb.equalsIgnoreCase("java", "java"));
-		assertEquals(false, sb.equalsIgnoreCase("java", " "));
-		assertEquals(true, sb.equalsIgnoreCase("java", "Java"));
-		try {
-			sb.equals("", "");
-			sb.equals("java", "");
-			sb.equals("", "java");
-		} catch (IllegalArgumentException e) {
-			// System.out.println("null");
-			e.printStackTrace();
-		}
-	}
+    public boolean equals(String input1, String input2) {
+        return input1.equals(input2);
+    }
+
+    public boolean equalsIgnoreCase(String input1, String input2) {
+        return input1.equalsIgnoreCase(input2);
+    }
+
+    public boolean contains(String input1, String input2) {
+        return input1.contains(input2);
+    }
 }

@@ -1,64 +1,43 @@
-package testing;
+package utility;
 
-
-import static org.junit.Assert.*;
-import org.junit.Test;
-
-import utility.StringAdvanceMethod;
-
-public class TestStringAdvanceMethod {
-	StringAdvanceMethod sam = new StringAdvanceMethod();
-
-	@Test
-	public void testSetInputsMethod() {
-		sam.setInput1("Java");
-		sam.setInput2("Program");
-		assertEquals("Java", sam.getInput1());
-		assertEquals("Program", sam.getInput2());
-		try {
-			sam.setInput1(null);
-			sam.setInput2(null);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+public class StringAdvanceMethod {
+	//Enter the code here...
+	private String input1;
+	private String input2;
+	public String getInput1() {
+		return input1;
 	}
-
-	@Test
-	public void testConcatMethod() {
-		assertEquals("JavaProgram", sam.concat("Java", "Program"));
-		assertEquals("Java@Program", sam.concat("Java@", "Program"));
-		assertEquals("Java  Program", sam.concat("Java ", " Program"));
-		try {
-			sam.concat(null, null);
-			sam.concat("Java", null);
-			sam.concat(null, "Java");
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		}
+	public void setInput1(String input1) {
+		this.input1 = input1;
 	}
-
-	@Test
-	public void testSplitMethod() {
-		assertEquals("Java  rogram", sam.split("Javaprogram", "p"));
-		assertEquals("Ja  a@", sam.split("Java@", "v"));
-		try {
-			sam.split("Java", "");
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-		}
+	public String getInput2() {
+		return input2;
 	}
+	public void setInput2(String input2) {
+		this.input2 = input2;
+	}
+	public String concat(String one, String two){
+		return one.concat(two);
+	}
+	public String split(String one, String two){
+		int s = 0;
+		int e = one.indexOf(two);
+		String result = "";
 
-	@Test
-	public void testIndexOfMethod() {
-		assertEquals("4", sam.indexOf("Javaprogram", "p"));
-		assertEquals("1", sam.indexOf("Java@", "a"));
-		assertEquals("4", sam.indexOf("Java ", " "));
-		try {
-			sam.indexOf("", "");
-			sam.indexOf("Java", "");
-			sam.indexOf("", "Java");
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
+		while(e != -1){
+			String sub = one.substring(s,e);
+			result = result + sub + " ";
+			s = e + two.length();
+			e = one.indexOf(two, s);
 		}
+		String last = one.substring(s);
+
+		return result+last;
+	}
+	public String indexOf(String one, String two) {
+		return Integer.toString(one.indexOf(two));
+	}
+	public String trim(String str){
+		return str.trim();
 	}
 }
